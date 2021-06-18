@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第嘉学社</title>
+    <style>
+        *{margin: 0;}
+        .top{
+            width:100%;
+            height: 72px;
+            background: #eee;
+            background-image: linear-gradient(rgb(248, 241, 241), rgb(199, 196, 196));
+            box-shadow: 0 3px 3px #666;
+            position: fixed;
+        }
+        .banner{
+            padding-top: 72px;
+            height: 680px;
+            background-image:url(./image/hero-hi.jpg);
+        }
+        .banner .banner-top{
+            height: 456px;
+            /*background: #ccc;测试使用*/
+            /*下边框*/
+            border-bottom: 1px solid #000;
+        }
+        .banner .banner-top h2{
+            color: #fff;
+            font-size: 62px;
+            text-align: center;
+            padding-top: 136px;
+        }
+        .banner .banner-top p{
+            color: #b1b1bd;
+            font-size: 22px;
+            padding-top: 80px;
+            text-align: center;
+            /*行高是字号的1.8倍*/
+            line-height: 1.8;
+        }
+        .banner .banner-bottom{
+            height: 222px;
+            background-color: rgba(12, 12, 12 ,0.2);/*背景透明度*/
+            border-top: 1px solid #666;/*上边框*/
+        }
+        .banner .banner-bottom .banner-bottom-inner{
+            width: 450px;
+            /*margin: 0 auto;*/
+            /*background-color: #ccc;试试背景色*/
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 68px;
+        }
+        .banner .banner-bottom .banner-bottom-inner a{
+            display: block;/*文字设置大小转为模块*/
+            float: left;
+            width: 225px;
+            height: 85px;
+            border-radius: 4px;
+            font-size: 34px;
+            text-align: center;
+            color: #fff;
+            line-height: 85px;
+            text-decoration: none;
+        }
+        .banner .banner-bottom .banner-bottom-inner .signup{
+            background-color: #f67268;
+        }
+        .points{
+            height: 388px;
+            background: #f5f6f8;
+        }
+        .points .points-inner{
+            width: 1146px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 80px;
+            /*height: 388px;
+            background-color: #ccc;*/
+        }
+        .points .points-inner >div{
+            width: 223px;
+            height: 244px;
+            float: left;
+            margin-left: 84px;
+            text-align: center;
+        }
+        .points .points-inner >div:first-child{
+            margin-left: 0;
+        }
+        .points .points-inner >div .icon{
+            width: 120px;
+            height: 120px;
+            background-color: #fff;
+            border-radius: 30px;
+            border: 1px solid #ccc;
+            margin-left: auto;
+            margin-right: auto;
+            background-image: url(./image/icons.png);
+        }
+        .first-points .points-inner >.one .icon{
+            background-position: -1px -1px;
+        }
+        .first-points .points-inner >.two .icon{
+            background-position: -123px -1px;
+        }
+        .first-points .points-inner >.three .icon{
+            background-position: -245px -1px;
+        }
+        .first-points .points-inner >.four .icon{
+            background-position: -367px -1px;
+        }
+        .second-points .points-inner >.one .icon{
+            background-position: -1px -123px;
+        }
+        .second-points .points-inner >.two .icon{
+            background-position: -123px -123px;
+        }
+        .second-points .points-inner >.three .icon{
+            background-position: -245px -123px;
+        }
+        .second-points .points-inner >.four .icon{
+            background-position: -367px -123px;
+        }
+        .third-points .points-inner >.one .icon{
+            background-position: -1px -245px;
+        }
+        .third-points .points-inner >.two .icon{
+            background-position: -123px -245px;
+        }
+        .third-points .points-inner >.three .icon{
+            background-position: -245px -245px;
+        }
+        .third-points .points-inner >.four .icon{
+            background-position: -367px -245px;
+        }
+        .forth-points .points-inner >.one .icon{
+            background-position: -1px -367px;
+        }
+        .forth-points .points-inner >.two .icon{
+            background-position: -123px -367px;
+        }
+        .forth-points .points-inner >.three .icon{
+            background-position: -245px -367px;
+        }
+        .forth-points .points-inner >.four .icon{
+            background-position: -367px -367px;
+        }
+        .points .points-inner >div h3{
+            font-size: 24px;
+            margin-top: 28px;
+            margin-bottom: 10px;   
+        }
+        .points .points-inner >div p{
+            font-size: 16px;
+            color: #8e97a9;
+            line-height: 1.5;   
+        }
+        .explanation{
+            height: 554px;
+            background: rgb(238, 118, 118);
+        }
+        .explanation > div{
+            width: 33.33%;
+            height: 554px;
+            float: left;
+        }
+        .explanation > .pay{
+            background: linear-gradient(#5ed8ad,#2ad4e8);
+        }
+        .explanation > .custom{
+            background: linear-gradient(#f5746c,#fc547f);
+        }
+        .explanation > .coding{
+            background: linear-gradient(#6485ed,#349bfe);
+        }
+        .explanation > div .inner{
+            width: 330px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .explanation >div .icon{
+            width: 102px;
+            height: 100px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 118px;
+            margin-bottom: 30px;
+            background-image: url(./image/exp-icons.png);
+        }
+        .explanation >.pay .icon{
+            background-position: 0 0;
+        }
+        .explanation >.custom .icon{
+            background-position: -106px 0;
+        }
+        .explanation >.coding .icon{
+            background-position: -218px 0;
+        }
+        /*选择器 找到下面的，给他赋予样式*/
+        /*空格 后代*/
+        /*> 子集*/
+        .explanation > div h3{
+            font-size: 24px;
+            margin-bottom: 26px;
+        }
+        .explanation > div p{
+            /*字体大小默认16 不写也可以*/
+            font-size: 14px;
+            color: #fff;
+            line-height: 24px;
+        }
+        .pay_me{
+            height: 572px;
+        }
+        .pay_me .pay_artical{
+            width: 590px;
+            height: 572px;
+            margin-left: 17%;
+            /*background-color: #ccc;*/
+        }
+        .pay_me .pay_artical h2{
+            font-size: 50px;
+            padding-top: 137px;
+            margin-bottom: 39px;
+        }
+        .pay_me .pay_artical p{
+            font-size: 14px;
+            line-height: 24px;
+            color: #71767f;
+            margin-bottom: 55px;
+        }
+        .pay_me .pay_artical .btns a{
+            display: block;
+            width: 111px;
+            height: 51px;
+            border-radius: 4px;
+            text-decoration: none;
+            text-align: center;
+            line-height: 51px;
+            float: left;
+            /*background-color: #ccc;*/
+        }
+        .pay_me .pay_artical .btns a:first-child{
+            color: #fff;
+            background-color: #f5756c;
+        }
+        .pay_me .pay_artical .btns a:last-child{
+            color: #f5756c;
+            margin-left: 30px;
+        }
+        .sell_anything{
+            height: 764px;
+            background-color: #212840;
+        }
+        .sell_anything .sell_anything_artical{
+            margin-left: 17%;
+            width: 602px;
+            height: 764px;
+            /*background-color: #ccc;*/
+        }
+        .sell_anything .sell_anything_artical h2{
+            color: #fff;
+            font-size: 50px;
+            padding-top: 137px;
+            margin-bottom: 39px;
+        }
+        .sell_anything .sell_anything_artical p{
+            font-size: 14px;
+            line-height: 24px;
+            color: #fff;
+            margin-bottom: 24px;
+            text-indent: 28px;/*首行缩进*/
+        }
+        .sell_anything .sell_anything_artical p a{
+            color: #4585d8;
+            text-decoration: none;
+        }
+        .sell_anything .sell_anything_artical .links > a{
+            display: block;
+            width: 111px;
+            height: 51px;
+            border-radius: 4px;
+            text-decoration: none;
+            text-align: center;
+            line-height: 51px;
+            float: left;
+            background-color: #4585d8;
+            color: #fff;
+        }
+        .sell_anything .sell_anything_artical .links p {
+            line-height: 51px;
+        }
+        .setup{
+            height: 601px;
+            background-color: #4586ff;
+        }
+        .setup .setup_artical{
+            margin-left: 17%;
+            height: 601px;
+            width: 344px;
+        }
+        .setup .setup_artical p{
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 26px;
+        }
+        .setup .setup_artical p:first-child{
+            padding-top: 72px;
+        }
+        .setup .setup_artical p:nth-child(7){
+            margin-bottom: 60px;
+        }
+        .setup .setup_artical .btns a{
+            display: block;
+            width: 111px;
+            height: 51px;
+            text-align: center;
+            line-height: 51px;
+            border-radius: 4px;
+            text-decoration: none;
+            float: left;
+        }
+        .setup .setup_artical .btns a:first-child{
+            background-color: #232a42;
+            color: #fff;
+        }
+        .setup .setup_artical .btns a:last-child{
+            margin-left: 30px;
+            color: #000;
+        }
+        .mobile{
+            height: 407px;
+            background-image: url(./image/desktop.jpg);
+        }
+        .pricing{
+            height: 967px;
+        }
+        .market{
+            height: 537px;
+            background-image: url(./image/market-bg.jpg);
+        }
+        .sign{
+            height: 78px;
+            width: 208px;
+        }
+        .footer-bot{
+            height: 253px;
+        }
+        .top nav{
+            position: absolute; 
+            width: 239px;
+            right: 0;
+            top: 0;
+        }
+        .top h1 a{
+            display: block;
+            width: 106px;
+            height: 20px;
+            text-indent: -9999px;
+            background-image: url(./image/logo.png);
+            background-repeat: no-repeat;
+            background-position: 0 26px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 26px;
+        }
+        .top nav a{
+            display: block;
+            float: left;
+            margin-left: 12px;
+            width: 99px;
+            height: 70px;
+            color: #496ad6;
+            text-decoration: none;
+            text-align: center;
+            border-top: 2px solid red;
+            line-height: 70px;
+        }
+    </style>
+</head>
+<body>
+   <div class="container"></div> 
+   <header>
+       <div class="top">
+           <h1><a href="#">PLASSO</a></h1>
+           <nav>
+               <a href="#" class="Login">Login</a>
+               <a href="#">Sign Up</a>
+           </nav>
+       </div>
+       <div class="banner">
+           <div class="banner-top">
+               <h2>Payments Made Simple</h2>
+               <p>Plasso makes accepting and making payments quick & easy.<br>Pay for things. Get paid for things. Buy things. Sell things.
+               </p>
+           </div>
+           <div class="banner-bottom">
+               <div class="banner-bottom-inner">
+                    <a class="signup" href="#">Sign Up</a>
+                    <a class="more" href="#">Learn More</a>
+                </div>
+           </div>
+       </div>
+   </header>
+   <section class="main">
+       <div class="points first-points">
+           <div class="points-inner">
+               <div class="one">
+                   <div class="icon"></div>
+                   <h3>Setup Shop</h3>
+                   <p>Sell products and/or subscription swith out writing any code at all. </p>
+               </div>
+               <div class="two">
+                    <div class="icon"></div>
+                    <h3>Digital Wallet</h3>
+                    <p>Securely store your credit cards to use for purchases.</p>
+               </div>
+               <div class="three">
+                    <div class="icon"></div>
+                    <h3>Physical Goods</h3>
+                    <p>Send shipment notifications to your customers with one click.for purchases.</p>
+               </div>
+               <div class="four"><div class="icon"></div>
+                    <h3>Digital Delivery</h3>
+                    <p>Sell your digital goods and files. Ebooks,videos, music, etc.</p>
+               </div>
+           </div>
+       </div>
+       <div class="explanation">
+           <div class="pay">
+               <div class="inner">
+                   <div class="icon"></div>
+                   <h3>Accept Payments</h3>
+                   <p>Start accepting payments instantly with Plasso.Yau can set up product pages called 'Spaces' if you'll be selling digital or physical goodzrvices.Send invaices directly to others. You'll even getycur cwn 'Pay Me' page anyone can visit to send you money at aytime.</p>
+               </div>
+           </div>
+           <div class="custom">
+            <div class="inner">
+                <div class="icon"></div>
+                <h3>Manage Customers</h3>
+                <p>Anytime someone purchases your products or your eceive a payment you'll be able to manage thosepayments and customers from within Plasso.You can issue refunds, collect additional data at check out and view all customer and client transaction history.</p>
+            </div>
+           </div>
+           <div class="coding">
+            <div class="inner">
+                <div class="icon"></div>
+                <h3>No Coding</h3>
+                <p>Plasso makes selling things super easy.You don't need to know or write nuts and bolts of recurring payments(subscriptions) and one-time payments are all handled for you.You'll be ready to start making money in just a few clicks!
+                </p>
+            </div>
+           </div>
+       </div>
+       <div class="pay_me">
+           <div class="pay_artical">
+               <h2>Pay Me for Free</h2>
+               <p>When you sign up with Plasso you'll get your own 'Pay Me' page automatically, no setup or configuration required. lf you want someone to pay you, simply send them your Pay Me linkand they'll be able to pay you using their credit card. There is no additional transaction charge for 'Pay Me' payments , they're fee freel</p>
+               <div class="btns">
+                   <a href="#">Sign Up</a>
+                   <a href="#">See Example</a>
+               </div>
+           </div>
+       </div>
+       <div class="points second-points">
+        <div class="points-inner">
+            <div class="one">
+                <div class="icon"></div>
+                <h3>Recurring Payments</h3>
+                <p>Create subscriptions and charge your members on a recurring basis.</p>
+            </div>
+            <div class="two">
+                 <div class="icon"></div>
+                 <h3>One-Time Payments</h3>
+                 <p>Sell productd,accept payments from clients,receive donations,etc.</p>
+            </div>
+            <div class="three">
+                 <div class="icon"></div>
+                 <h3>Pre-Orders</h3>
+                 <p>Capture pre-orders and charge the credit cards at a later time.</p>
+            </div>
+            <div class="four"><div class="icon"></div>
+                 <h3>Invoices</h3>
+                 <p>Create and send invoices to anyone with a few clicks.</p>
+            </div>
+        </div>
+       </div>
+       <div class="sell_anything">
+           <div class="sell_anything_artical">
+               <h2>Sell Anything</h2>
+               <p>Turn your idea into a real business with Plasso.Selling your physical or digital product scouldn't be easier. There's no need to setup a 'store', every product you create get it's own dedicated payment page, called a Space, that you can link to from your website, Facebook page,Twitter profile, etc . Or use <a href="#">Plasso Embeds</a> to put the payment form directly in your own existing web pages; you'll just need to paste a small snippet of code into your HTML.</p>
+               <p>Plasso is built to handle all types of payments: One-Time payments, Recurring payments,Pre-Orders， Invoices, Donations and more.</p>
+               <p>Plasso uses <a href="#">Stripe</a>, the world's best and most secure payment platform, to handle all transactions. Don't have a Stripe account? No problem. You'll be able to set one up with our1-step sign up process.
+               </p>
+               <div class="links">
+                   <a href="#">Sign Up</a>
+                   <p>Example:<a href="#">One-Time</a> · <a href="#">Recurring</a> · <a href="#">Embed</a></p>
+               </div>
+           </div>
+       </div>
+       <div class="setup">
+           <div class="setup_artical">
+               <p>Get setup in minutes.</p>
+               <p>Don't write a line of code.</p>
+               <p>Manage customers from one spot.</p>
+               <p>Sell multiple products & quantities.</p>
+               <p>Offer coupon and discount codes.</p>
+               <p>Collect additional data at checkout.</p>
+               <p>Sell subscriptions & pre-orders.</p>
+               <div class="btns">
+                   <a href="#">Sign Up</a>
+                   <a href="#">View Pricing</a>
+               </div>
+           </div>
+       </div>
+       <div class="points third-points">
+        <div class="points-inner">
+            <div class="one">
+                <div class="icon"></div>
+                <h3>Reports</h3>
+                <p>Keep track of sales and membership sign-ups at a glance. </p>
+            </div>
+            <div class="two">
+                 <div class="icon"></div>
+                 <h3>Automatic Receipts</h3>
+                 <p>Receipts & notifications emailed to your customers automatically.</p>
+            </div>
+            <div class="three">
+                 <div class="icon"></div>
+                 <h3>Virtual Terminal</h3>
+                 <p>Swipe with any USB card reader or charge cards manually.</p>
+            </div>
+            <div class="four"><div class="icon"></div>
+                 <h3>256-bit SSL Security</h3>
+                 <p>All transactions and payment forms are secure and encrypted. </p>
+            </div>
+        </div>
+       </div>
+       <div class="mobile"></div>
+       <div class="points forth-points">
+           <div class="points-inner">
+                <div class="one">
+                    <div class="icon"></div>
+                    <h3>Coupons</h3>
+                    <p>Offer coupons for your products.Configure how & when they expire.</p>
+        </div>
+                <div class="two">
+                    <div class="icon"></div>
+                    <h3>Export Data</h3>
+                    <p>All your sales and membership data can be exported with one click.</p>
+        </div>
+                <div class="three">
+                    <div class="icon"></div>
+                    <h3>Member Management</h3>
+                    <p>You have full control over members that sign up to any of your Spaces. </p>
+        </div>
+        <div class="four"><div class="icon"></div>
+             <h3>Analytics</h3>
+             <p>Add Google or Gosquared analytics toany of your Spaces.</p>
+        </div>
+       </div></div>
+       <div class="pricing"></div>
+       <div class="market"></div>
+   </section>
+   <footer>
+       <a href="" class="sign"></a>
+       <div class="footer-bot"></div>
+       <div class="sign"></div>
+       <div class="footer-bot"></div>
+   </footer>
+</body>
+</html>
